@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
-import { getLab, getNextLab, isUnlocked } from '@/labs/registry';
+import { getLab, getNextLab, getLabIndex, isUnlocked } from '@/labs/registry';
 import { useProgressStore } from '@/store/progressStore';
 import { LabGuide } from '@/components/LabGuide';
+import { toast } from '@/components/Toast';
 import './LabPage.css';
 
 export function LabPage() {
@@ -20,9 +21,14 @@ export function LabPage() {
     if (lab) setCurrentLab(lab.meta.slug);
   }, [lab, setCurrentLab]);
 
-  // Redirect locked lab to /labs (after render to avoid hook-order issues).
+  // Redirect locked lab to /labs with a hint about the prerequisite.
   useEffect(() => {
     if (lab && !unlocked) {
+      const index = getLabIndex(lab.meta.slug);
+      const prevSlug = lab.meta.prerequisite;
+      const prev = prevSlug ? getLab(prevSlug) : null;
+      const prevTitle = prev?.meta.title ?? (index > 0 ? '前一关' : '');
+      toast.info(`请先完成前置关卡：${prevTitle}`);
       navigate('/labs', { replace: true });
     }
   }, [lab, unlocked, navigate]);
