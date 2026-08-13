@@ -1,0 +1,75 @@
+.lhp {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.lhp__hero {
+  position: relative;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+/* [TEACHING_BUG] hero 图无显式尺寸导致 CLS / LCP 双重问题 */
+.lhp__hero-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.lhp__hero-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  font-size: 36px;
+  color: #fff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* [TEACHING_BUG] 白底黄字，对比度 ~1.6:1 远低于 AA 标准 4.5:1 */
+.lhp__cta {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 22px;
+  background: #ffffff;
+  color: #fde047;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+}
+
+.lhp__features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.lhp__features article {
+  padding: 14px;
+  background: var(--color-surface-2);
+  border-radius: var(--radius);
+  text-align: center;
+}
+
+.lhp__features img {
+  border-radius: 50%;
+}
+
+.lhp__features h3 {
+  margin: 8px 0 4px;
+  font-size: 16px;
+}
+
+.lhp__features p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--color-text-dim);
+}
+
+.lhp__hint {
+  margin-top: 24px;
+  font-size: 12px;
+  color: var(--color-text-dim);
+  text-align: center;
+}

@@ -16,7 +16,16 @@ export type DevToolsPanel =
   | 'Application'
   | 'Performance'
   | 'Memory'
-  | 'Comprehensive';
+  | 'Comprehensive'
+  // v2 advanced panels
+  | 'Lighthouse'
+  | 'Coverage'
+  | 'Device Mode'
+  | 'Web Vitals'
+  | 'Async'
+  | 'Animations'
+  | 'Command Menu'
+  | 'Service Worker';
 
 /** Difficulty 1 (easy) .. 3 (hard). Drives ordering in the labs index. */
 export type Difficulty = 1 | 2 | 3;

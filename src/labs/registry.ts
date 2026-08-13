@@ -17,6 +17,7 @@ import { lab as applicationStorage } from './05-application-storage';
 import { lab as performanceJank } from './06-performance-jank';
 import { lab as memoryLeak } from './07-memory-leak';
 import { lab as comprehensive } from './08-comprehensive';
+import { lab as lighthouseAudit } from './09-lighthouse-audit';
 
 const labs: Lab[] = [
   consoleErrors,
@@ -27,6 +28,7 @@ const labs: Lab[] = [
   performanceJank,
   memoryLeak,
   comprehensive,
+  lighthouseAudit,
 ];
 
 /**
