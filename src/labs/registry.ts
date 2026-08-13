@@ -23,6 +23,8 @@ import { lab as mobileEmulation } from './11-mobile-emulation';
 import { lab as webVitals } from './12-web-vitals';
 import { lab as asyncRaceCondition } from './13-async-race-condition';
 import { lab as animationsPanel } from './14-animations-panel';
+import { lab as commandMenuSnippets } from './15-command-menu-snippets';
+import { lab as serviceWorkerOffline } from './16-service-worker-offline';
 
 const labs: Lab[] = [
   consoleErrors,
@@ -39,6 +41,8 @@ const labs: Lab[] = [
   webVitals,
   asyncRaceCondition,
   animationsPanel,
+  commandMenuSnippets,
+  serviceWorkerOffline,
 ];
 
 /**

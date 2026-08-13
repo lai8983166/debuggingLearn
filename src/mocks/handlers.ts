@@ -55,4 +55,14 @@ export const handlers = [
     await delay(200);
     return HttpResponse.json({ query: q, results: [`Beta for "${q}"`, 'Banana', 'Berry'] });
   }),
+
+  // Lab 16 — service worker version endpoint. The lab's "publish new
+  // version" button changes the version param. With the lab's cache-first
+  // SW strategy, the cached response is returned forever — the page
+  // never sees the new version even though MSW would serve it.
+  http.get('/api/version', ({ request }) => {
+    const url = new URL(request.url);
+    const v = url.searchParams.get('v') ?? '1.0.0';
+    return HttpResponse.json({ version: v, builtAt: new Date().toISOString() });
+  }),
 ];
