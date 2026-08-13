@@ -1,0 +1,26 @@
+.lab-guide__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px dashed var(--color-border);
+}
+
+.lab-guide__feedback {
+  margin-top: 12px;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+}
+
+.lab-guide__feedback--fail {
+  background: rgba(248, 113, 113, 0.1);
+  border-left: 3px solid var(--color-error);
+}
+
+.lab-guide__feedback--pass {
+  background: rgba(74, 222, 128, 0.1);
+  border-left: 3px solid var(--color-success);
+}
