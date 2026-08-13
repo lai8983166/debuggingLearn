@@ -1,0 +1,32 @@
+.fps-meter {
+  position: fixed;
+  top: 64px;
+  right: 24px;
+  z-index: 90;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 6px 12px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  box-shadow: var(--shadow);
+}
+
+.fps-meter__dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.fps-meter__num {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.fps-meter__unit {
+  color: var(--color-text-dim);
+}

@@ -1,0 +1,38 @@
+.perf {
+  max-width: 480px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.perf__lead {
+  font-size: 13px;
+  color: var(--color-text-dim);
+  margin: 0 0 20px;
+}
+
+.perf__stage {
+  position: relative;
+  height: 60px;
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.perf__ball {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -16px;
+  margin-left: -16px;
+  font-size: 32px;
+  line-height: 32px;
+  will-change: transform;
+}
+
+.perf__hint {
+  font-size: 12px;
+  color: var(--color-text-dim);
+  line-height: 1.6;
+}

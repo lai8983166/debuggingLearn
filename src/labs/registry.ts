@@ -9,8 +9,25 @@
  */
 
 import type { Lab } from './types';
+import { lab as consoleErrors } from './01-console-errors';
+import { lab as elementsDom } from './02-elements-dom';
+import { lab as sourcesBreakpoint } from './03-sources-breakpoint';
+import { lab as networkFailingApi } from './04-network-failing-api';
+import { lab as applicationStorage } from './05-application-storage';
+import { lab as performanceJank } from './06-performance-jank';
+import { lab as memoryLeak } from './07-memory-leak';
+import { lab as comprehensive } from './08-comprehensive';
 
-const labs: Lab[] = [];
+const labs: Lab[] = [
+  consoleErrors,
+  elementsDom,
+  sourcesBreakpoint,
+  networkFailingApi,
+  applicationStorage,
+  performanceJank,
+  memoryLeak,
+  comprehensive,
+];
 
 /**
  * Return all registered labs in canonical order.
