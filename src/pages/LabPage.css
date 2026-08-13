@@ -1,0 +1,67 @@
+.lab-page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.lab-page__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+}
+
+.lab-page__back {
+  color: var(--color-text-dim);
+}
+
+.lab-page__meta {
+  display: flex;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--color-text-dim);
+}
+
+.lab-page__panel {
+  background: var(--color-surface-2);
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-family: var(--font-mono);
+}
+
+.lab-page__diff {
+  color: var(--color-warning);
+  letter-spacing: 1px;
+}
+
+.lab-page__title {
+  margin: 0;
+  font-size: 24px;
+}
+
+.lab-page__goal {
+  margin: 0;
+  color: var(--color-text-dim);
+  font-size: 14px;
+}
+
+.lab-page__scenario {
+  margin-top: 8px;
+  padding: 20px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.lab-page__hint {
+  font-size: 12px;
+  color: var(--color-text-dim);
+  text-align: center;
+}
+
+.lab-page__missing,
+.lab-page__locked {
+  text-align: center;
+  padding: 40px 0;
+  color: var(--color-text-dim);
+}
