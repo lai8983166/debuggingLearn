@@ -1,0 +1,84 @@
+/**
+ * Lab registry.
+ *
+ * Labs are added by:
+ *   1. Creating `src/labs/<slug>/` with Scenario.tsx, guide.ts, FIX.md
+ *   2. Appending a Lab entry to the `labs` array below
+ *
+ * Order in the array = order on the labs index page = unlock order.
+ */
+
+import type { Lab } from './types';
+
+const labs: Lab[] = [];
+
+/**
+ * Return all registered labs in canonical order.
+ */
+export function getAllLabs(): Lab[] {
+  return labs;
+}
+
+/**
+ * Look up a single lab by slug. Returns `null` if not found.
+ */
+export function getLab(slug: string): Lab | null {
+  return labs.find((lab) => lab.meta.slug === slug) ?? null;
+}
+
+/**
+ * Index of a lab in the registry (0-based). Returns -1 if not registered.
+ */
+export function getLabIndex(slug: string): number {
+  return labs.findIndex((lab) => lab.meta.slug === slug);
+}
+
+/**
+ * Determine whether a lab is unlocked given the set of completed slugs.
+ *
+ * Rules:
+ *   - The first lab (index 0) is always unlocked.
+ *   - Lab at index i > 0 is unlocked iff its `prerequisite` slug is in
+ *     `completedSlugs`. Falls back to "previous lab in the array is
+ *     completed" when prerequisite is null but index > 0.
+ */
+export function isUnlocked(slug: string, completedSlugs: ReadonlySet<string>): boolean {
+  const index = getLabIndex(slug);
+  if (index === -1) return false;
+  if (index === 0) return true;
+
+  const lab = labs[index];
+  const prereqSlug = lab.meta.prerequisite ?? labs[index - 1]?.meta.slug;
+  if (!prereqSlug) return true;
+  return completedSlugs.has(prereqSlug);
+}
+
+/**
+ * Get the next lab (by registry order), or null if this is the last.
+ */
+export function getNextLab(slug: string): Lab | null {
+  const index = getLabIndex(slug);
+  if (index === -1 || index >= labs.length - 1) return null;
+  return labs[index + 1];
+}
+
+// Allow labs to self-register at import time. We export an internal helper
+// that lab modules call at module-eval; the first call triggers a re-sort
+// by registry order. (Not used yet — labs are added directly to the array
+// above for simplicity. Hook exists for future dynamic loading.)
+export function _registerLab(_lab: Lab): void {
+  // Intentionally a no-op stub; reserved for future dynamic registration.
+}
+
+/**
+ * @internal Test-only helper: swap the labs array. Production code MUST NOT
+ * call this — it exists so unit tests can exercise `isUnlocked` / `getNextLab`
+ * without coupling to real lab modules.
+ */
+export function _setLabsForTesting(newLabs: Lab[]): void {
+  if (process.env.NODE_ENV === 'production') {
+    throw new Error('_setLabsForTesting must not be called in production');
+  }
+  labs.length = 0;
+  labs.push(...newLabs);
+}
