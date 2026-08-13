@@ -18,6 +18,8 @@ import { lab as performanceJank } from './06-performance-jank';
 import { lab as memoryLeak } from './07-memory-leak';
 import { lab as comprehensive } from './08-comprehensive';
 import { lab as lighthouseAudit } from './09-lighthouse-audit';
+import { lab as coverageUnusedCode } from './10-coverage-unused-code';
+import { lab as mobileEmulation } from './11-mobile-emulation';
 
 const labs: Lab[] = [
   consoleErrors,
@@ -29,6 +31,8 @@ const labs: Lab[] = [
   memoryLeak,
   comprehensive,
   lighthouseAudit,
+  coverageUnusedCode,
+  mobileEmulation,
 ];
 
 /**

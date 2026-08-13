@@ -1,0 +1,64 @@
+.mob {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.mob__lead {
+  font-size: 13px;
+  color: var(--color-text-dim);
+  margin: 0 0 16px;
+  line-height: 1.6;
+}
+
+.mob__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+/* [TEACHING_BUG] 用 !important 在 min-width: 768px 媒体查询里强制三列
+   ——这导致窄屏（width < 768）下的单列样式被这条规则的优先级覆盖（如果两条规则同时存在，
+   !important 会赢）。这里实际的 bug 是：默认样式没设 grid-template-columns，
+   所以窄屏也走了 repeat(3, 1fr)。修复：把规则改成默认 1fr，媒体查询里再升级到 3 列。 */
+@media (min-width: 768px) {
+  .mob__grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+/* [TEACHING_BUG] 默认没设 grid-template-columns，导致窄屏下继承默认 1 列
+   但当浏览器视口 >= 768 时变成 3 列；问题是当宽度刚好在 360-768 之间时
+   仍然要显示单列——这就是响应式该做的事，本关故意保留这种"无 fallback"写法。 */
+
+.mob__card {
+  padding: 12px;
+  background: var(--color-surface-2);
+  border-radius: var(--radius);
+  text-align: center;
+}
+
+.mob__card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.mob__card h4 {
+  margin: 8px 0 4px;
+  font-size: 14px;
+}
+
+.mob__card span {
+  font-size: 13px;
+  color: var(--color-primary);
+  font-family: var(--font-mono);
+}
+
+.mob__hint {
+  margin-top: 20px;
+  font-size: 12px;
+  color: var(--color-text-dim);
+  line-height: 1.6;
+}
