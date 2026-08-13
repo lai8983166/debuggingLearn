@@ -5,7 +5,7 @@
  * in the DevTools Network panel exactly like real network calls.
  */
 
-import { http, HttpResponse } from 'msw';
+import { http, HttpResponse, delay } from 'msw';
 
 export const handlers = [
   // Working endpoint — used to compare against the broken one.
@@ -38,5 +38,21 @@ export const handlers = [
       );
     }
     return HttpResponse.json({ ok: true, received: body });
+  }),
+
+  // Lab 13 — async race condition. Two queries with very different
+  // latencies so the late-fired one resolves LAST and overwrites the
+  // fresh result. `q=A` is slow (1500ms), `q=B` is fast (200ms).
+  // Typing "A" then "B" within 200ms produces the classic race: UI first
+  // shows B (correct), then gets clobbered by A (stale) 1.3s later.
+  http.get('/api/search', async ({ request }) => {
+    const url = new URL(request.url);
+    const q = url.searchParams.get('q') ?? '';
+    if (q.includes('A')) {
+      await delay(1500);
+      return HttpResponse.json({ query: q, results: [`Alpha for "${q}"`, 'Albatross', 'Almond'] });
+    }
+    await delay(200);
+    return HttpResponse.json({ query: q, results: [`Beta for "${q}"`, 'Banana', 'Berry'] });
   }),
 ];

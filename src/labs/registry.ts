@@ -21,6 +21,8 @@ import { lab as lighthouseAudit } from './09-lighthouse-audit';
 import { lab as coverageUnusedCode } from './10-coverage-unused-code';
 import { lab as mobileEmulation } from './11-mobile-emulation';
 import { lab as webVitals } from './12-web-vitals';
+import { lab as asyncRaceCondition } from './13-async-race-condition';
+import { lab as animationsPanel } from './14-animations-panel';
 
 const labs: Lab[] = [
   consoleErrors,
@@ -35,6 +37,8 @@ const labs: Lab[] = [
   coverageUnusedCode,
   mobileEmulation,
   webVitals,
+  asyncRaceCondition,
+  animationsPanel,
 ];
 
 /**

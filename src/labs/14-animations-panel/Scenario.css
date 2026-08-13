@@ -1,0 +1,92 @@
+.ani {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.ani__lead {
+  font-size: 13px;
+  color: var(--color-text-dim);
+  line-height: 1.6;
+  margin: 0 0 20px;
+}
+
+.ani__lead code {
+  background: var(--color-surface-2);
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 12px;
+}
+
+.ani__group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+  margin-bottom: 10px;
+  background: var(--color-surface-2);
+  border-radius: var(--radius);
+}
+
+.ani__label {
+  font-size: 13px;
+  color: var(--color-text-dim);
+  width: 80px;
+}
+
+.anim-spin {
+  font-size: 28px;
+  display: inline-block;
+  /* [TEACHING_BUG] linear 让旋转像机器齿轮 */
+  animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.anim-hover {
+  font-size: 28px;
+  display: inline-block;
+  /* [TEACHING_BUG] linear 让 hover 进入和退出都突兀 */
+  transition: transform 0.3s linear;
+}
+
+.anim-hover:hover {
+  transform: scale(1.4);
+}
+
+.anim-fill-track {
+  flex: 1;
+  height: 14px;
+  background: var(--color-bg);
+  border-radius: 7px;
+  overflow: hidden;
+}
+
+.anim-fill {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent-purple));
+  border-radius: 7px;
+  /* [TEACHING_BUG] linear 让填充像匀速机器人 */
+  animation: fill 1.5s linear infinite alternate;
+  transform-origin: left;
+}
+
+@keyframes fill {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.ani__actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.ani__hint {
+  margin-top: 16px;
+  font-size: 12px;
+  color: var(--color-text-dim);
+  line-height: 1.6;
+}
