@@ -1,0 +1,18 @@
+.rdbg { max-width: 700px; margin: 0 auto; }
+.rdbg__lead { font-size: 13px; color: var(--color-text-dim); line-height: 1.6; margin: 0 0 16px; }
+.rdbg__platforms { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+@media (max-width: 640px) { .rdbg__platforms { grid-template-columns: 1fr; } }
+.rdbg__platform {
+  padding: 14px; background: var(--color-surface-2);
+  border: 1px solid var(--color-border); border-radius: var(--radius);
+}
+.rdbg__platform h4 { margin: 0 0 10px; font-size: 14px; color: var(--color-primary); }
+.rdbg__steps { margin: 0; padding-left: 18px; font-size: 12px; color: var(--color-text-dim); line-height: 1.7; }
+.rdbg__inspect {
+  padding: 12px; text-align: center; font-size: 13px;
+  background: rgba(78, 161, 255, 0.1); border: 1px solid var(--color-primary);
+  border-radius: var(--radius);
+}
+.rdbg__inspect code {
+  font-family: var(--font-mono); font-weight: 700; color: var(--color-primary);
+}

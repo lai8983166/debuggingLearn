@@ -35,6 +35,7 @@ import { lab as reactDevTools } from './23-react-devtools';
 import { lab as recorderPanel } from './24-recorder-panel';
 import { lab as layersPanel } from './25-layers-panel';
 import { lab as crossBrowser } from './26-cross-browser';
+import { lab as remoteDebugging } from './27-remote-debugging';
 
 const labs: Lab[] = [
   consoleErrors,
@@ -63,6 +64,7 @@ const labs: Lab[] = [
   recorderPanel,
   layersPanel,
   crossBrowser,
+  remoteDebugging,
 ];
 
 /**
