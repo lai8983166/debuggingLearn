@@ -1,0 +1,26 @@
+.lyr { max-width: 640px; margin: 0 auto; }
+.lyr__lead { font-size: 13px; color: var(--color-text-dim); line-height: 1.6; margin: 0 0 16px; }
+.lyr__lead code { background: var(--color-surface-2); padding: 1px 5px; border-radius: 3px; font-size: 12px; }
+.lyr__grid {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 16px;
+}
+.lyr-card {
+  padding: 12px 8px; text-align: center; font-size: 12px;
+  background: var(--color-surface-2); border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  /* [TEACHING_BUG] 所有卡片都带 will-change → 每个都升级为独立合成层 */
+  will-change: transform;
+}
+.lyr-card--anim {
+  background: var(--color-primary); color: #0f1115; font-weight: 600;
+  animation: lyr-pulse 2s ease-in-out infinite;
+}
+/* 修复后：只有动画卡片保留 will-change */
+.lyr__grid--fixed .lyr-card { will-change: auto; }
+.lyr__grid--fixed .lyr-card--anim { will-change: transform; }
+@keyframes lyr-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+.lyr__fix { margin-bottom: 12px; }
+.lyr__hint { font-size: 12px; color: var(--color-text-dim); line-height: 1.6; }

@@ -33,6 +33,7 @@ import { lab as renderingPanel } from './21-rendering-panel';
 import { lab as saasDashboard } from './22-saas-dashboard';
 import { lab as reactDevTools } from './23-react-devtools';
 import { lab as recorderPanel } from './24-recorder-panel';
+import { lab as layersPanel } from './25-layers-panel';
 
 const labs: Lab[] = [
   consoleErrors,
@@ -59,6 +60,7 @@ const labs: Lab[] = [
   saasDashboard,
   reactDevTools,
   recorderPanel,
+  layersPanel,
 ];
 
 /**
