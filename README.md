@@ -32,8 +32,20 @@
 | 15 | 效率关：Command Menu 与 Snippets | Command Menu | ★★☆ | 14 |
 | 16 | 卡住的旧版本 | Service Worker | ★★★ | 15 |
 
+### v3 真实世界包（6 关，工业界高频痛点）
+
+| # | 关卡 | 训练的 DevTools 面板 | 难度 | 前置 |
+| --- | --- | --- | --- | --- |
+| 17 | 解开 Minify | Sources (Source Maps) | ★☆☆ | 16 |
+| 18 | 安静的消息流 | Network (WebSocket) | ★☆☆ | 17 |
+| 19 | 跨域外交 | Network (CORS) | ★☆☆ | 18 |
+| 20 | 消失的 Cookie | Application (SameSite) | ★☆☆ | 19 |
+| 21 | 抖动的页面 | Rendering | ★★☆ | 20 |
+| 22 | SaaS 救火（结业） | 综合 | ★★★ | 21 |
+
 > **v2 推荐 Chrome 或 Edge**（Safari/Firefox 对部分进阶面板支持有限）
 > **Lighthouse 关需要联网**（外链 picsum 图片）
+> **v3 结业关（22）综合训练**——一个仪表盘同时埋 5 个混合 bug，学员自己挑面板诊断
 
 建议按顺序通关——每关解锁下一关。v2 关卡整体难度高于 v1，建议先完成 v1。
 

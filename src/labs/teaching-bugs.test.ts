@@ -220,3 +220,75 @@ describe('teaching-bug: lab 16 service-worker-offline', () => {
     expect(sw).toMatch(/if \(cached\) return cached/);
   });
 });
+
+describe('teaching-bug: lab 17 source-maps', () => {
+  it('teaching-bug: minified code with sourceMappingURL comment', () => {
+    const src = readSrc('./17-source-maps/Scenario.tsx');
+    expect(src).toMatch(/sourceMappingURL/);
+    expect(src).toMatch(/function calculateTotal\(a,b\)/);
+  });
+});
+
+describe('teaching-bug: lab 18 websocket-debug', () => {
+  it('teaching-bug: malformed JSON silently swallowed', () => {
+    const src = readSrc('./18-websocket-debug/Scenario.tsx');
+    expect(src).toMatch(/\[TEACHING_BUG\]/);
+    // JSON response missing closing brace
+    expect(src).toMatch(/ts:' \+ Date\.now\(\) \+ ','/);
+    // catch silently swallows error
+    expect(src).toMatch(/JSON\.parse\(fakeResponse\)[\s\S]*?} catch/);
+  });
+});
+
+describe('teaching-bug: lab 19 cors-errors', () => {
+  it('teaching-bug: cross-origin fetch to invalid domain, error not logged', () => {
+    const raw = readSrc('./19-cors-errors/Scenario.tsx');
+    expect(raw).toMatch(/api\.invalid\.example\.com\/data/);
+    // Strip comments before regex match to avoid prose matching
+    const noComments = raw.replace(/\/\/[^\n]*/g, '').replace(/\/\*[\s\S]*?\*\//g, '');
+    // The catch block must NOT log to console.error (silent swallow)
+    const catchMatch = noComments.match(/catch\s*\(([^)]+)\)\s*{([\s\S]*?)\n\s*}/);
+    expect(catchMatch).not.toBeNull();
+    expect(catchMatch![2]).not.toMatch(/console\.error/);
+  });
+});
+
+describe('teaching-bug: lab 20 third-party-cookies', () => {
+  it('teaching-bug: cookie set with SameSite=Lax', () => {
+    const src = readSrc('./20-third-party-cookies/Scenario.tsx');
+    expect(src).toMatch(/SameSite=Lax/);
+  });
+});
+
+describe('teaching-bug: lab 21 rendering-panel', () => {
+  it('teaching-bug: unsized images + late banner + font swap (3 CLS sources)', () => {
+    const src = readSrc('./21-rendering-panel/Scenario.tsx');
+    expect(src).toMatch(/\[TEACHING_BUG\]/);
+    // banner mount with no height reservation
+    expect(src).toMatch(/bannerVisible && \([\s\S]*?render-lab__banner/);
+    // image with no width/height
+    expect(src).toMatch(/<img[^>]*random=\$\{i\}/);
+  });
+});
+
+describe('teaching-bug: lab 22 saas-dashboard', () => {
+  it('teaching-bug: 5 mixed bugs across panels', () => {
+    const src = readSrc('./22-saas-dashboard/Scenario.tsx');
+    expect(src).toMatch(/\[TEACHING_BUG\]/);
+    // 1. flex container no flex-wrap
+    expect(src).toMatch(/saas__grid/);
+    // 2. empty useEffect cleanup (strip comments to avoid prose matching)
+    const noLineComments = src.replace(/\/\/[^\n]*/g, '');
+    const noBlockComments = noLineComments.replace(/\/\*[\s\S]*?\*\//g, '');
+    const cleanupMatch = noBlockComments.match(/return\s*\(\)\s*=>\s*\{([\s\S]*?)\}/);
+    expect(cleanupMatch).not.toBeNull();
+    expect(cleanupMatch![1]).not.toMatch(/clearInterval/);
+    // 3. fetch swallows non-ok response
+    expect(src).toMatch(/res\.ok 没检查|静默吞掉/);
+    // 4. low contrast
+    const css = readSrc('./22-saas-dashboard/Scenario.css');
+    expect(css).toMatch(/#6b7280[\s\S]*?#4b5563/);
+    // 5. force reflow
+    expect(src).toMatch(/offsetHeight/);
+  });
+});
