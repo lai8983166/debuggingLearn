@@ -1,0 +1,55 @@
+.render-lab {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.render-lab__lead {
+  font-size: 13px;
+  color: var(--color-text-dim);
+  line-height: 1.6;
+  margin: 0 0 16px;
+}
+.render-lab__content {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin-bottom: 16px;
+}
+.render-lab__banner {
+  padding: 12px 16px;
+  background: var(--color-primary);
+  color: #0f1115;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  margin-bottom: 16px;
+  /* 没有 height reservation */
+}
+.render-lab__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.render-lab__list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  background: var(--color-surface-2);
+  border-radius: var(--radius-sm);
+}
+.render-lab__list img {
+  /* 故意不设 width/height，触发 CLS */
+}
+.render-lab__paragraph {
+  font-family: serif;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+}
+.render-lab__hint {
+  font-size: 12px;
+  color: var(--color-text-dim);
+  line-height: 1.6;
+}

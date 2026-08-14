@@ -1,0 +1,97 @@
+.saas {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.saas__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.saas__grid {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+  /* [TEACHING_BUG] flex 容器没设 flex-wrap，卡片宽度会挤压 */
+}
+.saas__grid--fixed {
+  flex-wrap: wrap;
+}
+.saas__card {
+  flex: 1;
+  min-width: 0;
+  padding: 14px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  text-align: center;
+  position: relative;
+}
+.saas__card h4 {
+  margin: 0 0 8px;
+  font-size: 13px;
+  color: var(--color-text-dim);
+}
+.saas__metric {
+  font-size: 28px;
+  font-family: var(--font-mono);
+  /* [TEACHING_BUG] 灰字灰底对比度 1.5:1 */
+  color: #6b7280;
+  background: #4b5563;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  display: inline-block;
+}
+.saas__metric--fixed {
+  color: var(--color-text);
+  background: var(--color-surface-2);
+}
+.saas__icon-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-dim);
+  cursor: pointer;
+}
+.saas__empty {
+  text-align: center;
+  color: var(--color-text-dim);
+  padding: 20px;
+  font-style: italic;
+  margin: 0;
+}
+.saas__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px dashed var(--color-border);
+}
+.saas__action {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: var(--color-surface-2);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+}
+.saas__action .btn {
+  padding: 2px 10px;
+  font-size: 12px;
+}
+.saas__done {
+  margin-top: 16px;
+  padding: 12px;
+  background: rgba(74, 222, 128, 0.1);
+  border: 1px solid var(--color-success);
+  border-radius: var(--radius);
+  color: var(--color-success);
+  font-size: 13px;
+}

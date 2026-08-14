@@ -25,7 +25,9 @@ export type DevToolsPanel =
   | 'Async'
   | 'Animations'
   | 'Command Menu'
-  | 'Service Worker';
+  | 'Service Worker'
+  // v3 real-world
+  | 'Rendering';
 
 /** Difficulty 1 (easy) .. 3 (hard). Drives ordering in the labs index. */
 export type Difficulty = 1 | 2 | 3;

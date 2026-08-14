@@ -1,0 +1,46 @@
+.cors-lab {
+  max-width: 520px;
+  margin: 0 auto;
+  text-align: center;
+}
+.cors-lab__lead {
+  font-size: 13px;
+  color: var(--color-text-dim);
+  line-height: 1.6;
+  margin: 0 0 16px;
+}
+.cors-lab__err {
+  margin-top: 16px;
+  padding: 12px;
+  background: rgba(248, 113, 113, 0.1);
+  border: 1px solid var(--color-error);
+  border-radius: var(--radius-sm);
+  text-align: left;
+  font-size: 13px;
+}
+.cors-lab__err code {
+  display: block;
+  margin: 6px 0;
+  padding: 6px 8px;
+  background: var(--color-bg);
+  border-radius: 3px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-error);
+}
+.cors-lab__err p {
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: var(--color-text-dim);
+}
+.cors-lab__hint {
+  margin-top: 20px;
+  font-size: 12px;
+  color: var(--color-text-dim);
+  line-height: 1.6;
+}
+.cors-lab__hint code {
+  background: var(--color-surface-2);
+  padding: 1px 5px;
+  border-radius: 3px;
+}

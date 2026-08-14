@@ -25,6 +25,12 @@ import { lab as asyncRaceCondition } from './13-async-race-condition';
 import { lab as animationsPanel } from './14-animations-panel';
 import { lab as commandMenuSnippets } from './15-command-menu-snippets';
 import { lab as serviceWorkerOffline } from './16-service-worker-offline';
+import { lab as sourceMaps } from './17-source-maps';
+import { lab as websocketDebug } from './18-websocket-debug';
+import { lab as corsErrors } from './19-cors-errors';
+import { lab as thirdPartyCookies } from './20-third-party-cookies';
+import { lab as renderingPanel } from './21-rendering-panel';
+import { lab as saasDashboard } from './22-saas-dashboard';
 
 const labs: Lab[] = [
   consoleErrors,
@@ -43,6 +49,12 @@ const labs: Lab[] = [
   animationsPanel,
   commandMenuSnippets,
   serviceWorkerOffline,
+  sourceMaps,
+  websocketDebug,
+  corsErrors,
+  thirdPartyCookies,
+  renderingPanel,
+  saasDashboard,
 ];
 
 /**
