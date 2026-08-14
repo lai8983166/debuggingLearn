@@ -32,6 +32,7 @@ import { lab as thirdPartyCookies } from './20-third-party-cookies';
 import { lab as renderingPanel } from './21-rendering-panel';
 import { lab as saasDashboard } from './22-saas-dashboard';
 import { lab as reactDevTools } from './23-react-devtools';
+import { lab as recorderPanel } from './24-recorder-panel';
 
 const labs: Lab[] = [
   consoleErrors,
@@ -57,6 +58,7 @@ const labs: Lab[] = [
   renderingPanel,
   saasDashboard,
   reactDevTools,
+  recorderPanel,
 ];
 
 /**
