@@ -31,6 +31,7 @@ import { lab as corsErrors } from './19-cors-errors';
 import { lab as thirdPartyCookies } from './20-third-party-cookies';
 import { lab as renderingPanel } from './21-rendering-panel';
 import { lab as saasDashboard } from './22-saas-dashboard';
+import { lab as reactDevTools } from './23-react-devtools';
 
 const labs: Lab[] = [
   consoleErrors,
@@ -55,6 +56,7 @@ const labs: Lab[] = [
   thirdPartyCookies,
   renderingPanel,
   saasDashboard,
+  reactDevTools,
 ];
 
 /**
