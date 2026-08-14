@@ -1,0 +1,14 @@
+.cb { max-width: 760px; margin: 0 auto; }
+.cb__lead { font-size: 13px; color: var(--color-text-dim); line-height: 1.6; margin: 0 0 16px; }
+.cb__table-wrap { overflow-x: auto; margin-bottom: 16px; }
+.cb__table {
+  width: 100%; border-collapse: collapse; font-size: 12px;
+  border: 1px solid var(--color-border); border-radius: var(--radius);
+}
+.cb__table th, .cb__table td {
+  padding: 8px 10px; border-bottom: 1px solid var(--color-border);
+  text-align: left; vertical-align: top;
+}
+.cb__table th { background: var(--color-surface-2); font-size: 11px; color: var(--color-text-dim); }
+.cb__feature { font-weight: 600; white-space: nowrap; }
+.cb__hint { font-size: 12px; color: var(--color-text-dim); line-height: 1.6; }
