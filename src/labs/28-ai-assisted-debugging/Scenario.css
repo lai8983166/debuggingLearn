@@ -1,0 +1,15 @@
+.aidbg { max-width: 680px; margin: 0 auto; }
+.aidbg__lead { font-size: 13px; color: var(--color-text-dim); line-height: 1.6; margin: 0 0 16px; }
+.aidbg__section { margin-bottom: 16px; }
+.aidbg__section h4 { margin: 0 0 8px; font-size: 13px; color: var(--color-text-dim); }
+.aidbg__pre {
+  margin: 0; padding: 12px; background: var(--color-bg);
+  border: 1px solid var(--color-border); border-radius: var(--radius-sm);
+  font-family: var(--font-mono); font-size: 11px; line-height: 1.6;
+  color: var(--color-text); white-space: pre-wrap; word-break: break-word;
+}
+.aidbg__pre--bad { border-color: var(--color-error); }
+.aidbg__pre--good { border-color: var(--color-success); max-height: 400px; overflow-y: auto; }
+.aidbg__note { margin: 6px 0 0; font-size: 12px; color: var(--color-error); }
+.aidbg__hint { font-size: 12px; color: var(--color-text-dim); line-height: 1.7; }
+.aidbg__hint strong { color: var(--color-primary); }
