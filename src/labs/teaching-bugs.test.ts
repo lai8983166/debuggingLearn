@@ -292,3 +292,25 @@ describe('teaching-bug: lab 22 saas-dashboard', () => {
     expect(src).toMatch(/offsetHeight/);
   });
 });
+
+describe('teaching-bug: lab 23 react-devtools', () => {
+  it('teaching-bug: HeavyCard without memo re-renders on parent tick', () => {
+    const src = readSrc('./23-react-devtools/Scenario.tsx');
+    // No React DevTools bug marker needed — the "bug" is missing memo
+    expect(src).toMatch(/function HeavyCard/);
+    expect(src).toMatch(/const MemoHeavyCard = memo\(HeavyCard\)/);
+  });
+});
+
+describe('teaching-bug: lab 25 layers-panel', () => {
+  it('teaching-bug: all cards carry will-change (layer explosion)', () => {
+    const css = readSrc('./25-layers-panel/Scenario.css');
+    expect(css).toMatch(/\[TEACHING_BUG\]/);
+    // base .lyr-card rule applies will-change to ALL cards
+    const baseRule = css.match(/\.lyr-card\s*\{([^}]*)\}/);
+    expect(baseRule).not.toBeNull();
+    expect(baseRule![1]).toMatch(/will-change:\s*transform/);
+    // fixed rule resets it
+    expect(css).toMatch(/\.lyr__grid--fixed \.lyr-card \{ will-change: auto/);
+  });
+});
